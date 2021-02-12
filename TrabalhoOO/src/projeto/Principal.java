@@ -145,7 +145,7 @@ public class Principal {
 		System.out.println("Imprimindo relatório meteorológico:");
 		
 		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
-			System.out.println("Dia " + i + ": " + todosAnos[ano].temperaturas[i] + " graus!");
+			System.out.println("Dia " + i + ": " + todosAnos[ano].temperaturas[mes][i] + " graus!");
 		}
 		
 		System.out.println("A Media foi de " + todosAnos[ano].med[mes]);
