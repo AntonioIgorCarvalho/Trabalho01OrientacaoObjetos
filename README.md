@@ -3,9 +3,11 @@
 | 18/0030264  |  Antonio Igor Carvalho |
 
 ## Sobre 
-- Trabalho desenvolvido no eclipse como orientado pela professora, todas as funções exigidas implementadas.
+- Trabalho desenvolvido no eclipse como orientado pela professora, todas as funções exigidas no documento do trabalho implementadas.
 
 ## Observações
+- Entrada apenas com números Ex: Janeiro == 2
+- Utilizado apenas inteiros
 - Janeiro com dados aleatórios
 - Diferencia ano bissexto
 - Detecta entrada de dados inválidos e pede para o usuário digitar novamente
