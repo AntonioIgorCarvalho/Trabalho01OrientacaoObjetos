@@ -168,7 +168,7 @@ public class Principal {
 	public static void calculaMedia(int totalDias, int mes, int ano, Dados todosAnos[]) {//$$$$$$$$$$$$$$$$$$
 		int media = 0, aux = 0, min = 0, max = 0;
 		
-		System.out.println("Você terá de digitar " + totalDias + "dias!");
+		System.out.println("Você terá de digitar " + totalDias + " dias!");
 		
 		for(int i = 1; i <= totalDias; i++) {
 			System.out.println("Digite o dia " + i);
@@ -186,12 +186,10 @@ public class Principal {
 			media += aux;
 			
 			if(aux > max) {
-				System.out.println("MAX ATT");
 				max = aux;
 			}
 			
 			if( aux < min) {
-				System.out.println("MiN ATT");
 				min = aux;
 			}
 			
