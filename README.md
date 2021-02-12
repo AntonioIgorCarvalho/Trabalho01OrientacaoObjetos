@@ -7,7 +7,6 @@
 
 ## Observações
 - Entrada apenas com números Ex: Janeiro == 2
-- Utilizado apenas inteiros
 - Janeiro com dados aleatórios
 - Diferencia ano bissexto
 - Detecta entrada de dados inválidos e pede para o usuário digitar novamente
