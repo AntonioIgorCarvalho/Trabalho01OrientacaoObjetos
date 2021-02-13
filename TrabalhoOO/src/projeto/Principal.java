@@ -55,7 +55,7 @@ public class Principal {
 		} 
 		
 		
-		System.out.println("Entrada de Menu Inválida, Encerrando Programa");	
+		System.out.println("Entrada de Menu invalida, Encerrando Programa");	
 	}
 	
 	
@@ -70,10 +70,10 @@ public class Principal {
 		System.out.println("DIGITE O NUMERO DE ACESSO DO MENU");
 		
 		System.out.println("1. Entrada das temperaturas:");
-		System.out.println("2. Cálculo da temperatura média:");
-		System.out.println("3. Cálculo da temperatura mínima:");
-		System.out.println("4. Cálculo da temperatura máxima:");
-		System.out.println("5. Relatório meteorológico:");
+		System.out.println("2. Calculo da temperatura media:");
+		System.out.println("3. Calculo da temperatura minima:");
+		System.out.println("4. Calculo da temperatura maxima:");
+		System.out.println("5. Relatorio meteorologico:");
 		System.out.println("--------------------------------------------");
 		menu = lerInt();
 		return menu;
@@ -84,17 +84,17 @@ public class Principal {
 		//Mostra a temperatura media do mes desejado
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 2!");
+		System.out.println("OPÇAO 2!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nAo cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A Media do mês " + mes + " foi de " + todosAnos[ano].med[mes]);
+		System.out.println("A Media do mes " + mes + " foi de " + todosAnos[ano].med[mes]);
 		
 	}//#################################################################################
 	
@@ -102,17 +102,17 @@ public class Principal {
 		//Mostra a temperatura minima desejada
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 3!");
+		System.out.println("OPÇAO 3!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nAo cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A minima do mês " + mes + " foi de " + todosAnos[ano].min[mes]);
+		System.out.println("A minima do mes " + mes + " foi de " + todosAnos[ano].min[mes]);
 		System.out.println("E ocorreu nos seguintes dias:\n");
 		
 		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
@@ -127,17 +127,17 @@ public class Principal {
 		//Mostra a temperatura maxima
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 4!");
+		System.out.println("OPÇAO 4!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nAo cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A maxima do mês " + mes + " foi de " + todosAnos[ano].max[mes]);
+		System.out.println("A maxima do mes " + mes + " foi de " + todosAnos[ano].max[mes]);
 		System.out.println("E ocorreu nos seguintes dias:\n");
 		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
 			if(todosAnos[ano].max[mes] == todosAnos[ano].temperaturas[mes][i]) {
@@ -151,17 +151,17 @@ public class Principal {
 		//Imprime o relatorio meteorologico
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 5!");
+		System.out.println("OPÇAO 5!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nAo cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("Imprimindo relatório meteorológico:");
+		System.out.println("Imprimindo relatorio meteorologico:");
 		
 		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
 			System.out.println("Dia " + i + ": " + todosAnos[ano].temperaturas[mes][i] + " graus!");
@@ -175,7 +175,7 @@ public class Principal {
 	}///////////////////////////////////////////////////////////////////////////////////
 	
 	public static int lerInt() {//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-		//Função para ler int de forma mais facil
+		//FunçAo para ler int de forma mais facil
 		Scanner ler = new Scanner(System.in);
 		
 		int num = 0;
@@ -186,12 +186,12 @@ public class Principal {
 	}//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 	
 	public static void entradas1(Dados todosAnos[]) {//-----------------------------------
-		//Função anterior a calculaMedia, só para nao ficar muito grande
+		//FunçAo anterior a calculaMedia, so para nao ficar muito grande
 		
 		int mes = -1, ano = -1;
 
 		
-		System.out.println("OPÇÃO 1!");
+		System.out.println("OPÇAO 1!");
 		
 		mes = lerM();
 		ano = lerA();
@@ -204,10 +204,10 @@ public class Principal {
 	}//---------------------------------------------------------------------------------
 	
 	public static void calculaMedia(int totalDias, int mes, int ano, Dados todosAnos[]) {//$$$$$$$$$$$$$$$$$$
-		//Aqui registra os dados da opção de menu == 1, já vai lendo os numeros,calculando e registrando os dados necessarios
+		//Aqui registra os dados da opçAo de menu == 1, ja vai lendo os numeros,calculando e registrando os dados necessarios
 		int media = 0, aux = 0, min = 0, max = 0;
 		
-		System.out.println("Você terá de digitar " + totalDias + " dias!");
+		System.out.println("Voce tera de digitar " + totalDias + " dias!");
 		
 		for(int i = 1; i <= totalDias; i++) {
 			System.out.println("Digite o dia " + i);
@@ -267,14 +267,14 @@ public class Principal {
 	}//****************************************************************************************
 
 	public static int lerA() {//**********************************************************
-		//Função para ler ano valido
+		//FunçAo para ler ano valido
 		int ano = 0;
 			
 		while(ano <= 2010 || ano >= 2021) {
 			System.out.println("Digite o ano");	
 			ano = lerInt();
 				if(ano <= 2010 || ano >= 2021) {
-					System.out.println("Ano Inválido");
+					System.out.println("Ano Invalido");
 				}
 			}
 		
@@ -289,15 +289,15 @@ public class Principal {
 
 	
 		public static int lerM() {//=======================================================
-			//Função para ler os meses validos
+			//FunçAo para ler os meses validos
 			int mes = 0;
 			
 			
 			while(mes <= 0 || mes >= 13) {
-				System.out.println("Digite o mês");		
+				System.out.println("Digite o mes");		
 				mes = lerInt();
 					if(mes <= 0 || mes >= 13) {
-						System.out.println("Mês Inválido");
+						System.out.println("Mes Invalido");
 					}
 				}
 			return mes;
