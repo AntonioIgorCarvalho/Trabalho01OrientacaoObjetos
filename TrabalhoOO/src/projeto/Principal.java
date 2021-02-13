@@ -10,25 +10,27 @@ public class Principal {
 		int menuEscolha = menu();
 		
 		Dados[] todosAnos = new Dados[10]; //Objeto com todos os anos
-		todosAnos[0] = new Dados();
-		todosAnos[1] = new Dados();
-		todosAnos[2] = new Dados();
-		todosAnos[3] = new Dados();
-		todosAnos[4] = new Dados();
+		//Criando um objeto para cada ano
+		todosAnos[0] = new Dados();//2020
+		todosAnos[1] = new Dados();//2011
+		todosAnos[2] = new Dados();//2012
+		todosAnos[3] = new Dados();//...
+		todosAnos[4] = new Dados();//...
 		todosAnos[5] = new Dados();
 		todosAnos[6] = new Dados();
 		todosAnos[7] = new Dados();
 		todosAnos[8] = new Dados();
 		todosAnos[9] = new Dados();
 		
-		definirDados(todosAnos);
-		todosAnos[2].dias[2] = 29;
+		definirDados(todosAnos); //Colocando os dias para todos os anos
+		
+		todosAnos[2].dias[2] = 29;//Anos bissextos
 		todosAnos[6].dias[2] = 29;
 		todosAnos[0].dias[2] = 29;
 		
-		janeiroDados(todosAnos);
+		janeiroDados(todosAnos); //Colocando dados aleatorios em janeiro
 		
-		while(menuEscolha > 0 && menuEscolha < 6) {
+		while(menuEscolha > 0 && menuEscolha < 6) {//Menu
 			
 			switch(menuEscolha) {
 			case 1 :
@@ -53,7 +55,7 @@ public class Principal {
 		} 
 		
 		
-		System.out.println("Entrada de Menu Inválida, Encerrando Programa");	
+		System.out.println("Entrada de Menu InvÃ¡lida, Encerrando Programa");	
 	}
 	
 	
@@ -61,17 +63,17 @@ public class Principal {
 	
 	
 	public static int menu() {//#######################################################
-		
+	//Lendo o numero escolhido para menu
 	int menu;
 		
 		System.out.println("--------------------------------------------");
 		System.out.println("DIGITE O NUMERO DE ACESSO DO MENU");
 		
 		System.out.println("1. Entrada das temperaturas:");
-		System.out.println("2. Cálculo da temperatura média:");
-		System.out.println("3. Cálculo da temperatura mínima:");
-		System.out.println("4. Cálculo da temperatura máxima:");
-		System.out.println("5. Relatório meteorológico:");
+		System.out.println("2. CÃ¡lculo da temperatura mÃ©dia:");
+		System.out.println("3. CÃ¡lculo da temperatura mÃ­nima:");
+		System.out.println("4. CÃ¡lculo da temperatura mÃ¡xima:");
+		System.out.println("5. RelatÃ³rio meteorolÃ³gico:");
 		System.out.println("--------------------------------------------");
 		menu = lerInt();
 		return menu;
@@ -79,70 +81,87 @@ public class Principal {
 	
 	
 	public static void calculo2(Dados todosAnos[]) {//##################################
+		//Mostra a temperatura media do mes desejado
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 2!");
+		System.out.println("OPÃ‡ÃƒO 2!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nÃ£o cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A Media do mês " + mes + " foi de " + todosAnos[ano].med[mes]);
+		System.out.println("A Media do mÃªs " + mes + " foi de " + todosAnos[ano].med[mes]);
 		
 	}//#################################################################################
 	
 	public static void calculo3(Dados todosAnos[]) {//----------------------------------
+		//Mostra a temperatura minima desejada
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 3!");
+		System.out.println("OPÃ‡ÃƒO 3!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nÃ£o cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A minima do mês " + mes + " foi de " + todosAnos[ano].min[mes]);
+		System.out.println("A minima do mÃªs " + mes + " foi de " + todosAnos[ano].min[mes]);
+		System.out.println("E ocorreu nos seguintes dias:\n");
+		
+		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
+			if(todosAnos[ano].min[mes] == todosAnos[ano].temperaturas[mes][i]) {
+				System.out.println(i + "/" + mes);
+			}
+		}
 		
 	}//---------------------------------------------------------------------------------
 	
 	public static void calculo4(Dados todosAnos[]) {//***********************************
+		//Mostra a temperatura maxima
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 4!");
+		System.out.println("OPÃ‡ÃƒO 4!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nÃ£o cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("A maxima do mês " + mes + " foi de " + todosAnos[ano].max[mes]);
+		System.out.println("A maxima do mÃªs " + mes + " foi de " + todosAnos[ano].max[mes]);
+		System.out.println("E ocorreu nos seguintes dias:\n");
+		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
+			if(todosAnos[ano].max[mes] == todosAnos[ano].temperaturas[mes][i]) {
+				System.out.println(i + "/" + mes);
+			}
+		}
 		
 	}//**********************************************************************************
 	
 	public static void calculo5(Dados todosAnos[]) {////////////////////////////////////
+		//Imprime o relatorio meteorologico
 		int mes = 0, ano = 0;
 		
-		System.out.println("OPÇÃO 5!");
+		System.out.println("OPÃ‡ÃƒO 5!");
 		
 		mes = lerM();
 		ano = lerA();
 		
 		if(todosAnos[ano].cadastrado[mes] != 2021202120) {
-			System.out.println("Dados não cadastrados para a data digitada!!!");
+			System.out.println("Dados nÃ£o cadastrados para a data digitada!!!");
 			return;
 		}
 		
-		System.out.println("Imprimindo relatório meteorológico:");
+		System.out.println("Imprimindo relatÃ³rio meteorolÃ³gico:");
 		
 		for(int i = 1; i <= todosAnos[ano].dias[mes]; i++) {
 			System.out.println("Dia " + i + ": " + todosAnos[ano].temperaturas[mes][i] + " graus!");
@@ -156,6 +175,7 @@ public class Principal {
 	}///////////////////////////////////////////////////////////////////////////////////
 	
 	public static int lerInt() {//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		//FunÃ§Ã£o para ler int de forma mais facil
 		Scanner ler = new Scanner(System.in);
 		
 		int num = 0;
@@ -165,10 +185,29 @@ public class Principal {
 		return num;
 	}//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 	
+	public static void entradas1(Dados todosAnos[]) {//-----------------------------------
+		//FunÃ§Ã£o anterior a calculaMedia, sÃ³ para nao ficar muito grande
+		
+		int mes = -1, ano = -1;
+
+		
+		System.out.println("OPÃ‡ÃƒO 1!");
+		
+		mes = lerM();
+		ano = lerA();
+		System.out.println("Digite a temperatura dos dias");
+		
+		calculaMedia(todosAnos[ano].dias[mes], mes, ano, todosAnos);//ALTERACAO
+		
+		
+		
+	}//---------------------------------------------------------------------------------
+	
 	public static void calculaMedia(int totalDias, int mes, int ano, Dados todosAnos[]) {//$$$$$$$$$$$$$$$$$$
+		//Aqui registra os dados da opÃ§Ã£o de menu == 1, jÃ¡ vai lendo os numeros,calculando e registrando os dados necessarios
 		int media = 0, aux = 0, min = 0, max = 0;
 		
-		System.out.println("Você terá de digitar " + totalDias + " dias!");
+		System.out.println("VocÃª terÃ¡ de digitar " + totalDias + " dias!");
 		
 		for(int i = 1; i <= totalDias; i++) {
 			System.out.println("Digite o dia " + i);
@@ -210,7 +249,7 @@ public class Principal {
 	
 	
 	public static void definirDados(Dados todosanos[]) {//*************************************
-		
+		//Aqui vai registrar os dias para cada mes
 		for(int i = 0; i < 10; i++) {
 		todosanos[i].dias[1] = 31;
 		todosanos[i].dias[2] = 28;
@@ -228,13 +267,14 @@ public class Principal {
 	}//****************************************************************************************
 
 	public static int lerA() {//**********************************************************
+		//FunÃ§Ã£o para ler ano valido
 		int ano = 0;
 			
 		while(ano <= 2010 || ano >= 2021) {
 			System.out.println("Digite o ano");	
 			ano = lerInt();
 				if(ano <= 2010 || ano >= 2021) {
-					System.out.println("Ano Inválido");
+					System.out.println("Ano InvÃ¡lido");
 				}
 			}
 		
@@ -246,41 +286,58 @@ public class Principal {
 		return ano;
 		}
 
-		public static void entradas1(Dados todosAnos[]) {//-----------------------------------
-			int mes = -1, ano = -1;
 
-			
-			System.out.println("OPÇÃO 1!");
-			
-			mes = lerM();
-			ano = lerA();
-			System.out.println("Digite a temperatura dos dias");
-			
-			calculaMedia(todosAnos[ano].dias[mes], mes, ano, todosAnos);//ALTERACAO
-			
-			
-			
-		}//---------------------------------------------------------------------------------
 	
 		public static int lerM() {//=======================================================
+			//FunÃ§Ã£o para ler os meses validos
 			int mes = 0;
 			
 			
 			while(mes <= 0 || mes >= 13) {
-				System.out.println("Digite o mês");		
+				System.out.println("Digite o mÃªs");		
 				mes = lerInt();
 					if(mes <= 0 || mes >= 13) {
-						System.out.println("Mês Inválido");
+						System.out.println("MÃªs InvÃ¡lido");
 					}
 				}
 			return mes;
 		}//===============================================================================
 		
 		public static void janeiroDados(Dados todosAnos[]) {//Registra dados aleatorios em janeiro
-			for(int i = 0; i < todosAnos[00].dias[12]; i++) {
-				todosAnos[00].temperaturas[2][i] = (i*2);
+			
+			int media = 0, aux = 0, min = 0, max = 0, mes = 1, ano = 0;
+			
+			
+			for(int i = 1; i <= todosAnos[0].dias[1]; i++) {
+					
+				aux = i*2;
+				
+				if(i == 1) {
+					max = aux;
+					min = aux;
+				}
+				
+				todosAnos[ano].temperaturas[mes][i] = aux;
+				
+				media += aux;
+				
+				if(aux > max) {
+					max = aux;
+				}
+				
+				if( aux < min) {
+					min = aux;
+				}
+				
 			}
+			
+			media = todosAnos[0].dias[1];
+			
+					todosAnos[0].med[1] = media;
+					todosAnos[0].min[1] = min;
+					todosAnos[0].max[1] = max;	
+					todosAnos[0].cadastrado[1] = 2021202120;
 		}
-		
+					
 }
 
